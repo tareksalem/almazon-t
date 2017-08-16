@@ -527,10 +527,11 @@ footer{
   width:100%;
   background-color:#2e2842;
   color:white;
-  margin-top:100px;
+  
   text-align:center;
   direction:rtl;
   font-size:12px;
+  
 }
 footer .row{
   margin-bottom:0px;
