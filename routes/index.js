@@ -50,7 +50,7 @@ function genrating(req, res, next) {
 										}
 										var user = req.user;
 										if (req.session.cookie.originalMaxAge !== null) {
-											res.render('homepage', { title: 'Express', user: user, products: products, product1: product1, product2: product2, product3: product3, product4: product4});
+											res.render('homepage', { title: 'الصفحة الرئيسية', user: user, products: products, product1: product1, product2: product2, product3: product3, product4: product4});
 										} else {
 											res.render('homepage', { title: 'الصفحة الرئيسية', user: user, products: products, product1: product1, product2: product2, product3: product3, product4: product4});
 										}
