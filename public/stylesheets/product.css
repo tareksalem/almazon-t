@@ -1,0 +1,63 @@
+/* this is container of single product*/
+#parent-container-single-product{
+	margin-top:90px;
+	width:100%;
+	height:auto;
+	text-align:right;
+}
+/* single product information section*/
+.container-single-product{
+	float:right;
+	width:70%;
+	height:600px;
+	display:inline-block;
+	text-align:center;
+	padding:30px 10px 10px 10px;
+}
+.container-single-product h4{
+	padding-bottom:20px;
+	width:100%;
+}
+.container-single-product img{
+	width:80%;
+	height:300px;
+	margin:auto;
+}
+.container-single-product p{
+	padding:10px;
+	width:80%;
+	margin:auto;
+	margin-top:30px;
+	line-height:30px;
+}
+/* section of buying the product and the prices*/
+.buy-single-product{
+	padding:30px 10px 10px 10px;
+	border:1px solid #cecece;
+	width:30%;
+	display:inline-block;
+	float:left;
+	margin-top:90px;
+	text-align:center;
+}
+.buy-single-product .single-product-price{
+	font-size:15px;
+	margin-bottom:20px;
+} 
+.buy-single-product .single-product-buy-btn, .buy-single-product .single-product-add-basket{
+	text-decoration:none;
+	font-size:14px;
+	background-color:#10cc10;
+	display:block;
+	padding:10px;
+	width:100%;
+	color:white;
+	transition:0.5s ease;
+	margin:20px 0px 0px 0px;
+}
+.buy-single-product .single-product-buy-btn:hover{
+	background-color:#e0693e;	
+}
+.buy-single-product .single-product-add-basket{
+	background-color:#2e2842;	
+}

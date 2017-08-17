@@ -1,1 +1,17 @@
-<h1>hello from product</h1>
+<!--container to show a single product-->
+<div class="container" id="parent-container-single-product">
+	{{#if singleProduct}}
+	<!-- section to show a product descriptiom and image-->
+		<div class="container-single-product">
+			<h4 class="single-product-title">{{singleProduct.productTitle}}</h4>
+			<img src="/{{singleProduct.productImage}}">
+			<p>{{singleProduct.productDescription}}</p>
+		</div>
+		<!-- container to payments and buy the product-->
+		<div class="buy-single-product">
+			<p class="single-product-price">{{singleProduct.productPrice}}</p>
+			<a href="#" class="single-product-add-basket"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ضف إلى سلة المشتريات</a>
+			<a class="single-product-buy-btn" href="#">شراء</a>
+		</div>
+	{{/if}}
+</div>

@@ -1,5 +1,4 @@
 .container-signup{
-	position:absolute;
 	display:block;
 	margin-top:75px;
 	width:400px;
@@ -10,7 +9,29 @@
 	background-color:rgba(0, 0, 0, 0.75);
 	font-size:12px;
 }
-
+.container-sign-options {
+	width:100%
+	margin-bottom:20px;
+	height:50px;
+	
+	margin-top:20px;
+	text-align:center;
+}
+.ntainer-sign-options ul {
+	text-align:center;
+}
+.container-sign-options li{
+	display:inline-block;
+	list-style:none;
+	margin:10px;
+	padding:10px;
+	border-bottom:1px solid white;
+}
+.container-sign-options li a{
+	color:white;
+	text-decoration:none;
+	font-size:14px;
+}
 .container-signup form{
 	background-color:white;
 	width:40%;

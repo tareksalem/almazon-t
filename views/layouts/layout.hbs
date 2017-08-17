@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="/stylesheets/users/buyers/profile.css"/>
         <link rel="stylesheet" href="/stylesheets/users/sellers/profile.css"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/product.css">
     </head>
 <body>
     <!-- header one-->
@@ -25,19 +26,11 @@
     {{else if sellerLogged}}    
     {{else}}
     <div class="sign">
-        <li class="user-signup dropdown"> <i class="fa fa-sign-in" aria-hidden="true"></i>
-            سجل في الموقع
-         <ul class="select select-sign">
-         <li><a href="/seller/signup" class=""><i class="fa fa-sign-in" aria-hidden="true"></i> سجل كبائع</a></li>
-         <li><a href="/buyer/signup"><i class="fa fa-sign-in" aria-hidden="true"></i> سجل كمشتري</a></li>
-         </ul>
+        <li class="user-signup dropdown">
+            <a href="/buyer/signup"><i class="fa fa-sign-in" aria-hidden="true"></i> سجل في الموقع</a>
          </li>
-        <li class="user-login"><i class="fa fa-sign-in" aria-hidden="true"></i>
-         سجل الدخول
-         <ul class="select select-sign">
-         <li><a href="/seller/login" class=""><i class="fa fa-sign-in" aria-hidden="true"></i> سجل الدخول كبائع</a></li>
-         <li><a href="/buyer/login"><i class="fa fa-sign-in" aria-hidden="true"></i> سجل الدخول كمشتري</a></li>
-         </ul>
+        <li class="user-login">
+            <a href="/buyer/login" class=""><i class="fa fa-sign-in" aria-hidden="true"></i> سجل الدخول</a>
          </li>
     </div>
     {{/if}}
@@ -168,6 +161,48 @@
         {{{body}}}
         <!-- FOOTER -->
         <!--start footer -->
+        <!-- FOOTER -->
+        <footer style="">
+            <div class="container">
+               <div class="row clearfix">
+                    <div class="footer-sections col-sm-6 col-md-4 col-xs-12 col-lg-4 clearfix">
+                       <div class="jumbotron">
+                            <div class="container">
+                                <h2 class="website-logo">اسم الموقع</h2>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="footer-sections col-sm-6 col-md-4 col-xs-12 col-lg-4 clearfix">
+                          <div class="jumbotron">
+                            <div class="container links">
+                                <a href="#">ماذا عنا</a>
+                                <a href="#">الخصوصية والأمان</a>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="footer-sections col-sm-6 col-md-4 col-xs-12 col-lg-4 clearfix">
+                        <div class="jumbotron">
+                            <div class="container">
+                                <h3>اشترك ليصلك كل جديد  <i class="fa fa-envelope" aria-hidden="true"></i></h3>
+                                <input type="email" class="form-control" placeholder="your email">
+
+                                <div class="icons">
+                                    <h3>تابعنا</h3>
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"

@@ -57,28 +57,9 @@ body, html{
   text-align:center;
   cursor:pointer;
 }
-.sign .select-sign{
-  background-color:#f9f9f9;
-  width:90%;
-  height:130px;
-  margin:10px 18% 0px 0px;
-  padding:10px 0px 10px 0px;
-  border:1px solid #cecece;
-  display:none;
-  box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index:15
-}
-.sign .select-sign li{
-  display:block;
-  float:none;
-  width:100%;
-  margin:0px 0px 0px 20px;
-  padding:20px 10px 0px 10px;
-  font-size:14px;
-}
-.sign .select-sign li a{
-  color:rgba(100, 100, 100, 1);
+.sign li a{
   text-decoration:none;
+  color:white;
 }
 .user-dropdown{
   position:relative;
@@ -574,7 +555,10 @@ footer .row{
 }
 /* start media query*/
 @media(min-width:550px) and (max-width:750px) {
-  .header1 .sign{width:50%;}
+  .header1 .sign{width:55%;}
+  .header1 .sign li{
+    width:50%;
+  }
   .logo img{width:40%;}
   .container-search .search-box{
     width:80%;

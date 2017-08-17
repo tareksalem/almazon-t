@@ -70,8 +70,16 @@ router.get('/', genrating, function(req, res, next) {
 });
 // start rout for display the page of product
 router.get("/product/:id", function (req, res, next) {
-	res.render("product", {
-		title: "product"
+	Product.findById(req.params.id, function (err, product) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("product", {
+				title: product.productTitle,
+				singleProduct: product,
+				user: req.user
+			});
+		}
 	});
 });
 module.exports = router;
