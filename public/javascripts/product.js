@@ -18,19 +18,24 @@ var productPriceCounter = document.getElementById("single-product-price-count");
 var productCurrentAmount = document.getElementById("single-product-current-amount");
 var productDescount = document.getElementById("single-product-price-descount");
 var productDescountCount = document.getElementById("single-product-descount-count");
+var singleProductDescount = document.getElementById("single-product-descount");
 increaseAmount.addEventListener("click", function () {
 	var amountCounter = orderAmount.value;
 	amountCounter++;
 	orderAmount.value = amountCounter;
 	var orderAmountText = orderAmount.value;
 	productPrice.textContent = productPriceCounter.textContent * orderAmountText;
-	productDescount.textContent = productDescountCount.textContent * orderAmountText;
+	if (singleProductDescount) {
+		productDescount.textContent = productDescountCount.textContent * orderAmountText;
+	}
 	var productAmount = productCurrentAmount.textContent.match(/[\d\.]+/g);
 	var amountNumber = Number(productAmount);
 	if (orderAmount.value > amountNumber) {
 		orderAmount.value = amountNumber;
 		productPrice.textContent = productPriceCounter.textContent * orderAmount.value;
-		productDescount.textContent = productDescountCount.textContent * orderAmount.value;
+		if (singleProductDescount) {
+			productDescount.textContent = productDescountCount.textContent * orderAmount.value;
+		}
 	}
 });
 decreaseAmount.addEventListener("click", function () {
@@ -38,12 +43,17 @@ decreaseAmount.addEventListener("click", function () {
 		amountCounter--;
 		orderAmount.value = amountCounter;
 		var orderAmountText = orderAmount.value;
+		//var asdf = productDescountCount.textContent;
 	productPrice.textContent = productPriceCounter.textContent * orderAmountText;
-	productDescount.textContent = productDescountCount.textContent * orderAmountText;
+	if (singleProductDescount) {
+		productDescount.textContent = productDescountCount.textContent * orderAmountText;
+	}
 		if (orderAmount.value < 1) {
 			orderAmount.value = 1;
 			productPrice.textContent = productPriceCounter.textContent;
-			productDescount.textContent = productDescountCount.textContent;
+			if (singleProductDescount) {
+				productDescount.textContent = productDescountCount.textContent;
+			}
 		}
 	});
 orderAmount.addEventListener("keyup", function () {
