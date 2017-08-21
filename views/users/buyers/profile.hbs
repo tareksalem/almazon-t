@@ -3,8 +3,10 @@
 	<div class="alert alert-success"> أهلا  {{user.username}}
 		<a class="close" data-dismiss="alert" aria-label="close"><span class="glyphicon glyphicon-remove"></span></a>
 	</div>
+  <!-- buyer panel control-->
 	<div class="container profile-panel">
 		<div class="list-group">
+    <!-- section of purhacses that the buyer baid it-->
  			<p id="toggle-purchases" class="list-group-item">مشترياتي تم شراؤها
  				<i class="badg" aria-hidden="true">0</i>
  			</p>
@@ -13,6 +15,8 @@
   					<span class="date-purchases">dwd</span>
   				</p>
   			</div>
+        <!-- end purhases-->
+        <!-- section of products in basket of buyer-->
   			<p id="toggle-basket" class="list-group-item">سلة المشتريات
   				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
   			</p>
@@ -21,6 +25,8 @@
   				<i class="fa fa-times"></i>
   				</p>
   			</div>
+        <!-- end product that in basket of buyer-->
+        <!--section of messages of buyer with engineers-->
   			<p class="list-group-item" id="toggle-messages">الرسائل
   				<i class="badg" aria-hidden="true">0</i>
   			</p>
@@ -31,11 +37,15 @@
   					<span class="date-message">fef</span>
   				</p>
   			</div>
+        <!-- end section of messages-->
+        <!-- section of cridet of user-->
   			<p class="list-group-item" id="toggle-credit">الرصيد
   				<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-			</p>
+			  </p>
   			<div id="cont-credit" class="toggling-cont">
+          <h5>اشحن رصيدك في الموقع</h5>
   			</div>
+        <!-- end section of credit of user-->
 		</div>
 	</div>
 </div>

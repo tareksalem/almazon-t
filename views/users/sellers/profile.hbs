@@ -1,5 +1,6 @@
-<!-- container of profile of user-->
+ <!-- container of profile of seller-->
 <div class="container container-fluid container-profile">
+<!-- check if there are errors messages or not-->
 	{{#if hasErrors}}
 		{{#each error}}
 		<div class="alert alert-danger">
@@ -8,6 +9,8 @@
 		</div>
 		{{/each}}
 	{{/if}}
+	<!-- end errors-->
+	<!-- check if there are success messages to seller-->
 	{{#if hasSuccess}}
 		{{#each success}}
 			<div class="alert alert-success">
@@ -16,6 +19,7 @@
 			</div>
 		{{/each}}
 	{{/if}}
+	<!-- end success messages-->
 	<!--start seller panel control-->
 	<div class="container profile-panel">
 		<div class="list-group">
@@ -35,12 +39,13 @@
   						{{#if product}}
   							{{#each product}}
   								<div class="seller-posted-products">
-  									<p>{{this.productTitle}}</p>
+  									<a href="/product/{{this._id}}"><p>{{this.productTitle}}</p></a>
   									<p>{{this.productCount}}</p>
   									<p>{{moment this.productDate "MM/DD/YYYY"}}</p>
   									<p><i class="fa fa-times"></i></p>
   									<form class="seller-product-delete" method="POST" action="/seller/product/delete/{{this._id}}">
   									<input type="submit">
+  									<!-- this is a form to edit the product-->
   								</form>
   									<p><i class="fa fa-pencil-square"></i></p>
   									<div class="seller-update-product">
@@ -57,36 +62,86 @@
 														{{this.productDescription}}
 													</textarea>
 												</div>
+                        <div class="form-group">
+                  <label for="productNumber">رقم المنتج</label>
+                  <input type="text" name="productNumber" value="{{this.productNumber}}" class="productNumber form-control"/>
+                </div>
+                <div class="form-group">
+                  <label for="productStandard">عيار المنتج</label>
+                  <input type="text" name="productStandard" value="{{this.productStandard}}" id="productStandard" class="productStandard form-control"/>
+                </div>
+                <div class="form-group">
+                  <label for="productGram">الجرام</label>
+                  <input type="text" name="productGram" value="{{this.productGram}}" class="productGram form-control"/>
+                </div>
+                <div class="form-group">
+                  <label for="productAmount">كمية المنتج</label>
+                  <input type="text" name="productAmount" value="{{this.productAmount}}" class="productAmount form-control"/>
+                </div>
+                
+                <div class="form-group">
+                  <label for="productDescount">سعر المنتج داخل العرض</label>
+                  <input type="text" name="productDescount" value="{{this.productDescount}}" class="productDescount form-control"/>
+                </div>
+                <div class="form-group">
+                  <label for="productDescountDegree">قيمة الخصم بالنسبة المئوية</label>
+                  <input type="text" name="productDescountDegree" value="{{this.productDescountDegree}}" class="productDescountDegree form-control"/>
+                </div>
 												<div class="form-group">
 													<label>سعر المنتج</label>
 													<input class="form-control" type="text" name="productPrice" value="{{this.productPrice}}">
 												</div>
-												<div class="form-group form-image">
-													
-													<input class="form-control product-new-image" type="file" name="productImage" value="{{this.productImage}}">
-
+												<div class="form-group form-image">	
+                          <!--<input type="text" name="editProductImage1" value="{{this.productImage1}}">-->
+													<input class="form-control product-new-image" type="file" name="productImage1" value="{{this.productImage1}}">
 													<div class="product-image">
-														<img src="/{{this.productImage}}">
+														<img src="/{{this.productImage1}}">
 														<span class="seller-change-image">تغيير الصورة</span>
 													</div>
-
 												</div>
+                        <div class="form-group form-image" style="display:none;">
+                          <input type="text" name="editProductImage2" value="{{this.productImage2}}"> 
+                          <input class="form-control product-new-image" type="file" name="productImage2" value="{{this.productImage2}}">
+                          <div class="product-image">
+                            <img src="/{{this.productImage2}}">
+                            <span class="seller-change-image">تغيير الصورة</span>
+                          </div>
+                        </div>
+                        <div class="form-group form-image" style="display:none;"> 
+                          <input type="text" name="editProductImage3" value="{{this.productImage3}}">
+                          <input class="form-control product-new-image" type="file" name="productImage3" value="{{this.productImage3}}">
+                          <div class="product-image">
+                            <img src="/{{this.productImage3}}">
+                            <span class="seller-change-image">تغيير الصورة</span>
+                          </div>
+                        </div>
 		  									</div>
-		  									<div class="edit-product-categories">
-		  											<h4 class="edit-product-categories-title">اختر تصنيف المنتج</h4>
-		  											<div class="shake">
-		  												<p class="category-name">لققل <span class="fa fa-check-circle">
-		  												</span>
-		  												</p>
-		  												<p class="category-name">قلقلص <span class="fa fa-check-circle"></span></p>
-				  										<p class="category-name">قلقلق <span class="fa fa-check-circle"></span></p>
-		  												<input type="text" name="productCategoryName" class="edit-product-category-name" value="{{this.productCategoryName}}" />
-				  										<div id="edit-product-category-name">
-				  											<span style="float:left;cursor:pointer" class="remove-category fa fa-times"></span>
-				  											<p style="border:none;cursor:default;padding:none;"></p>
-				  										</div>
-		  											</div>
-		  										</div>
+                        <div class="edit-product-category-and-brand">
+                          <h5>تصنيف المنتج</h5>
+                          <select class="form-control edit-product-category-name" name="productCategoryName">اسم التصنيف
+                            <option>
+                              سيراميك
+                            </option class="form-control">
+                            <option class="form-control">
+                              بلاط
+                            </option>
+                            <option class="form-control">
+                              بورسلين
+                            </option>
+                          </select>
+                          <h5>ماركة المنتج</h5>
+                          <select class="form-control edit-product-brand-name" name="productBrandName">اسم التصنيف
+                            <option>
+                              سيراميك
+                            </option class="form-control">
+                            <option class="form-control">
+                              بلاط
+                            </option>
+                            <option class="form-control">
+                              بورسلين
+                            </option>
+                          </select>
+                        </div>
 		  								<input type="submit" class="btn real btn-block" value="تعديل المنتج">
   									</form>
   								</div>
@@ -114,12 +169,36 @@
 	  							<textarea type="text" name="productDescription" id="productDescription" class="productDescription form-control"></textarea>
 	  						</div>
 	  						<div class="form-group">
+	  							<label for="productNumber">رقم المنتج</label>
+	  							<input type="text" name="productNumber" id="productNumber" class="productNumber form-control"/>
+	  						</div>
+                <div class="form-group">
+                  <label for="productStandard">عيار المنتج</label>
+                  <input type="text" name="productStandard" id="productStandard" class="productStandard form-control"/>
+                </div>
+                <div class="form-group">
+                  <label for="productGram">الجرام</label>
+                  <input type="text" name="productGram" id="productGram" class="productGram form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="productAmount">كمية المنتج</label>
+                  <p class="input-amount-alert" style="display:none;color:green; text-align:right"></p>
+                  <input type="text" name="productAmount" id="productAmount" class="productAmount form-control"/>
+                </div>
+	  						<div class="form-group">
 	  							<label for="productPrice">سعر المنتج</label>
+                  <p class="input-price-alert" style="display:none;color:green; text-align:right"></p>
 	  							<input type="text" name="productPrice" id="productPrice" class="productPrice form-control"/>
 	  						</div>
+	  						<div class="form-group form-productDescount">
+	  							<label for="productDescount">سعر المنتج داخل العرض</label>
+                  <p class="input-descount-alert" style="display:none;color:green; text-align:right"></p>
+	  							<input type="text" name="productDescount" id="productDescount" class="productDescount form-control"/>
+	  						</div>
+	  						
 	  					</div>
   						<div class="new-product-options">
-  						<h4 class="new-product-options-title">اختر تصنيف المنتج</h4>
+  							<h5 class="new-product-options-title">اختر تصنيف المنتج</h5>
   							<div class="shake">
   							<p class="new-product-option">لققل <span class="fa fa-check-circle"></span></p>
   							<p class="new-product-option">قلقلص <span class="fa fa-check-circle"></span></p>
@@ -130,13 +209,34 @@
   								<p style="border:none;cursor:default;padding:none;"></p>
   							</div>
   							</div>
+  							<h5 class="new-product-options-brand">اختر ماركة المنتج</h5>
+  							<div class="shak">
+  							 <p class="new-product-brand">لققل <span class="fa fa-check-circle"></span></p>
+  							 <p class="new-product-brand">قلقلص <span class="fa fa-check-circle"></span></p>
+  							 <p class="new-product-brand">قلقلق <span class="fa fa-check-circle"></span></p>
+  							 <input type="text" name="productBrandName" id="productBrandName" />
+  							<div class="brandName">
+  								<span style="float:left;cursor:pointer" class="remove-brand fa fa-times"></span>
+  								<p style="border:none;cursor:default;padding:none;"></p>
+  							</div>
+  							</div>
   						</div>
   						<div class="post-product-images">
-  						<input type="file" name="productImage" id="newProductImage" accept="image/*">
-  						<span class="uploadNewProductImage">ارفع صورة</span>
-  						<div class="live-view-image">
-  							<img id="livePreview">
-  						</div>
+                <div class="post-product-image">
+  						    <input type="file" name="productImage1" id="newProductImage1" accept="image/*">
+                  <input type="file" name="productImage2" id="newProductImage2" accept="image/*">
+                  <input type="file" name="productImage3" id="newProductImage3" accept="image/*">
+                  <div class="uploadImageButtons">
+  						    <span class="uploadNewProductImage" id="uploadNewProductImage1">ارفع صورة</span>
+                  <span class="uploadNewProductImage" id="uploadNewProductImage2">ارفع صورة</span>
+                  <span class="uploadNewProductImage" id="uploadNewProductImage3">ارفع صورة</span>
+                  </div>
+  						    <div class="live-view-image">
+  							   <img id="livePreview1">
+                   <img id="livePreview2">
+                   <img id="livePreview3">
+  						    </div>
+                </div>
   						</div>
   						<p class="" id="fake">نشر المنتج</p>
   						<input type="submit" class="btn real btn-block" value="نشر المنتج">
@@ -145,6 +245,12 @@
   				</div>
   			</div>
   			<!--end-->
+  			<!-- section of orders-->
+  			<p class="list-group-item seller-orders-title" id="toggle-orders">الطلبات</p>
+  			<div class="toggling-cont container-seller-orders" id="container-seller-orders">
+  			</div>
+  			<!--end-->
+  			<!--section of messages of seller with engineers-->
   			<p class="list-group-item" id="toggle-messages">الرسائل
   				<i class="badg" aria-hidden="true">0</i>
   			</p>
@@ -155,13 +261,16 @@
   					<span class="date-message">fef</span>
   				</p>
   			</div>
+  			<!--end-->
+        <!-- end section of messages-->
+  			<!--section of seller credit-->
   			<p class="list-group-item" id="toggle-credit">الرصيد
   				<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
 			</p>
   			<div id="cont-credit" class="toggling-cont">
+  				<p>اشحن حسابك في الموقع</p>
   			</div>
+  			<!--end-->
 		</div>
 	</div>
 </div>
-
-		

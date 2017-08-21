@@ -201,20 +201,29 @@ router.get("/post", LoggedIn, function (req, res, next) {
 	req.flash("error", "لم يتم نشر المنتج");
 	res.redirect("/seller/profile");
 });
-router.post("/post", LoggedIn, upload.single("productImage"), function (req, res, next) {
-		var newProduct = new Product();
+router.post("/post", LoggedIn, upload.any(), function (req, res, next) {
+	var newProduct = new Product();
+		newProduct.productPuplisher = req.user.username;
 		newProduct.productTitle = req.body.productTitle;
 		newProduct.productDescription = req.body.productDescription;
-		newProduct.productPuplisher = req.user.username;
 		newProduct.productCategoryName = req.body.productCategoryName;
-		newProduct.productImage = req.file.filename;
-		newProduct.productDate = new Date();
+		newProduct.productBrandName = req.body.productBrandName;
+		newProduct.productNumber = req.body.productNumber;
+		newProduct.productStandard = req.body.productStandard;
+		newProduct.productGram = req.body.productGram;
+		newProduct.productAmount = req.body.productAmount;
 		newProduct.productPrice = req.body.productPrice;
+		newProduct.productDescount = req.body.productDescount;
+		newProduct.productDescountDegree = req.body.productDescountDegree;
+		newProduct.productImage1 = req.files[0].filename;
+		newProduct.productImage2 = req.files[1].filename;
+		newProduct.productImage3 = req.files[2].filename;
+		newProduct.productDate = new Date();
 		newProduct.productCount = 0;
 		newProduct.save(function (err, product) {
 			if (err) {
 				console.log(err);
-				fs.unlink(req.file.path, function (err) {
+				fs.unlink(req.files[0, 1, 2].path, function (err) {
 					if (err) {
 						throw err;
 					}
@@ -235,32 +244,47 @@ var storage = multer.diskStorage({
 		cb(null, "uploads/products");
 	},
 	filename: function (req, file, cb) {
-		cb(null, req.body.productTitle + "-" + Date.now() + ".jpg");
+		cb(null, req.body.productTitle + Date.now() + ".jpg");
 	}
 });
 var upload = multer({
-	storage: storage,
-	 limits: {filesie: 100*100}
+	storage: storage//,
+	// limits: {filesie: 100*100}
 	});
-router.post("/product/edit/:id", LoggedIn, upload.single("productImage"), function (req, res, next) {
+
+//var manyUploads = upload.fields([{name: "editProductImage1"}, {name: "editProductImage2"}, {name: "editProductImage3"}]);
+router.post("/product/edit/:id", LoggedIn, upload.single("productImage1"), function (req, res, next) {
 	Product.findById(req.params.id, function (err, product) {
 		if (err) {
 			console.log(err);
 		} else {
 			var product = product;
+
+			product.productPuplisher = req.user.username;
 			product.productTitle = req.body.productTitle;
 			product.productDescription = req.body.productDescription;
+			product.productNumber = req.body.productNumber;
+			product.productStandard = req.body.productStandard;
+			product.productGram = req.body.productGram;
+			product.productAmount = req.body.productAmount;
 			product.productPrice = req.body.productPrice;
-			product.productPuplisher = req.user.username;
+			product.productDescount = req.body.productDescount;
+			product.productDescountDegree = req.body.productDescountDegree;
 			product.productCategoryName = req.body.productCategoryName;
+			product.productBrandName = req.body.productBrandName;
 			if (req.file) {
-				product.productImage = req.file.filename;
+				product.productImage1 = req.file.filename;
 			} else {
-				product.productImage = product.productImage;
+				product.productImage1 = product.productImage1;
 			}
+			
+				//product.productImage1 = product.productImage1;
+				//product.productImage2 = product.productImage2;
+				//product.productImage3 = product.productImage3;
+			
 			product.save(function (err) {
 				if (err) {
-					console.log(err);
+					console.log(err);	
 				} else {
 					req.flash("success", "تم تعديل المنتج بنجاح");
 					res.redirect("/seller/profile");

@@ -9,26 +9,46 @@
 .container-single-product{
 	float:right;
 	width:70%;
-	height:600px;
+	height:auto;
 	display:inline-block;
 	text-align:center;
 	padding:30px 10px 10px 10px;
+
+	margin-bottom:20px;
 }
 .container-single-product h4{
 	padding-bottom:20px;
 	width:100%;
 }
-.container-single-product img{
-	width:80%;
-	height:300px;
+.container-single-product .product-image-active{
+	width:60%;
+	height:250px;
 	margin:auto;
 }
-.container-single-product p{
+.container-single-product .single-product-discreption{
 	padding:10px;
 	width:80%;
 	margin:auto;
 	margin-top:30px;
 	line-height:30px;
+}
+/* other images of single product*/
+.container-single-product-other-images{
+	width:70%;
+	height:auto;
+	padding:20px;
+	margin:auto;
+	margin-top:10px;
+	display:block;
+	border:1px solid #cecece;
+}
+.container-single-product-other-images .single-product-other-image{
+	width:35%;
+	display:inline-block;
+	
+	height:100px;
+	margin-left:5%;
+	cursor:pointer;
 }
 /* section of buying the product and the prices*/
 .buy-single-product{
@@ -40,8 +60,51 @@
 	margin-top:90px;
 	text-align:center;
 }
+.single-product-order-amount{
+	height:auto;
+	width:100%;
+	display:block;
+}
+.single-product-order-amount .single-product-order-amount-form{
+	width:100%;
+	height:150px;
+	display:block;
+	text-align:center;
+}
+.single-product-order-amount-form h5:first-child{
+	margin-bottom:20px;
+}
+.single-product-amount{
+	background-color:white;
+	padding:10px;
+	color:black;
+	position:relative;
+	box-shadow: 1px 1px 1px 1px black;
+}
+.single-product-order-amount-arrows{
+	display:inline-block;
+	width:20px;
+	height:40px;
+	float:right;
+
+}
+.single-product-order-amount-arrows p{
+	background-color:#cecece;
+	color:black;
+	cursor:pointer;
+}
+.single-product-show-order-amount{
+	display:inline-block;
+	text-align:center;
+	height:40px;
+	width:50px;
+	border:1px solid #cecece;
+	padding:10px;
+	float:right;
+	margin:0px 30% 0px 10px;
+}
 .buy-single-product .single-product-price{
-	font-size:15px;
+	font-size:12px;
 	margin-bottom:20px;
 } 
 .buy-single-product .single-product-buy-btn, .buy-single-product .single-product-add-basket{
@@ -60,4 +123,23 @@
 }
 .buy-single-product .single-product-add-basket{
 	background-color:#2e2842;	
+}
+/* media query of product page*/
+@media (max-width:800px) {
+	.container-single-product{
+		display:block;
+		width:100%;
+	}
+	.container-single-product-other-images{
+		width:100%;
+	}
+	.container-single-product-other-images img{
+		width:40%;
+	}
+	.buy-single-product{
+		display:block;
+		width:100%;
+		margin-top:20px;
+		margin-bottom:20px;
+	}
 }

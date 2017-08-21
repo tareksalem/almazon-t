@@ -7,6 +7,7 @@ $(document).ready(function () {
 	var contMessages = $("#cont-messages");
 	var toggleCredit = $("#toggle-credit");
 	var contCredit = $("#cont-credit");
+	
 	$(".list-group .list-group-item").on("click", function () {
 		$(this).addClass('active').siblings().removeClass("active");
 	});
